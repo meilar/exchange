@@ -1,4 +1,8 @@
-#header h2 {
+h1 {
+  padding-top: 5%;
+}
+
+#header p {
   font-style: italic;
 }
 
