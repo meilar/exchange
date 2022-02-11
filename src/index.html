@@ -23,7 +23,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input type="number" class="form-control" aria-label="Amount in USD">
+                <input id="user-amt" type="number" class="form-control" aria-label="Amount in USD">
                 <div class="input-group-append">
                   <span class="input-group-text">USD</span>
                 </div>
@@ -178,7 +178,6 @@
                 <option value="TZS">Tanzanian Shilling</option>
                 <option value="UAH">Ukrainian Hryvnia</option>
                 <option value="UGX">Ugandan Shilling</option>
-                <option value="USD">United States Dollar</option>
                 <option value="UYU">Uruguayan Peso</option>
                 <option value="UZS">Uzbekistani So'm</option>
                 <option value="VES">Venezuelan Bolívar Soberano</option>
@@ -200,10 +199,10 @@
           <div class="text-center elem">
             <div id="input-go" class="btn btn-primary">Exchange My Currency</div>
           </div>
-          <div class="alert alert-primary text-center" role="alert">
+          <div class="alert alert-primary text-center hidden" role="alert">
             Thank you. Please wait a moment for your results.
           </div>
-          <div class="alert alert-danger" role="alert">
+          <div class="alert alert-danger hidden" role="alert">
             There was an error: <span id="error-text"></span>. Please reload this page and try again.
           </div>
         </div>
@@ -216,7 +215,7 @@
           <p class="card-text"><span id="start-symbol"></span><span id="start-amt"></span> <span id="start-curr"></span>
             is worth <span id="end-symbol"></span><span id="end-amt"> </span> <span id="start-curr"></span>. Conversion
             data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.</p>
-          <a href="#" class="btn btn-primary">Start Over</a>
+          <div id="reset" class="btn btn-primary">Start Over</div>
         </div>
       </div>
     </div>
