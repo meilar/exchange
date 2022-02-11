@@ -4,12 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchange from './currency-exchange.js';
 
-function displayExchange(rate, userAmt) {
+function displayExchange(rate, userAmt, userCurr) {
   if (rate.result === "success") {
     console.log("display exchange if statement");
     let outputAmt = rate.conversion_rate*userAmt;
     console.log("output amount is "+outputAmt);
-    $("#end-amt").text(outputAmt);
+    $("#output-text").html(`$${Intl.NumberFormat("USD").format(userAmt)} USD is worth ${Intl.NumberFormat(userCurr).format(outputAmt)} ${userCurr}. Conversion
+    data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.`);
   } else {
     console.log("display exchange else statement");
     $("#error-text").text(rate["error-type"]);
@@ -25,12 +26,11 @@ function submitMessage() {
 $("#input-go").on("click", function() {
   submitMessage();
   let userAmt = $("#user-amt").val();
+  $("#user-amt").val("");
   $("#start-amt").text(userAmt);
   let userCurr = $("#curr-select").val();
-  $("#end-curr").text();
   let rateRequest = CurrencyExchange.exchange(userCurr);
-  rateRequest
-    .then(rateRequest => displayExchange(rateRequest, userAmt));
+  rateRequest.then(rateRequest => displayExchange(rateRequest, userAmt, userCurr));
 });
 
 $("#reset").on("click", function() {
