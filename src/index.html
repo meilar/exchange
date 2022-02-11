@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Template</title>
+  <title>Currency Exchanger</title>
 </head>
 <body>
-<h1>Template</h1>
+  <div class="container">
+    <div id="header" class="text-center">
+      <h1>Exchange Your Currency</h1>
+      <h2>"...it's what's for dinar!"</h2>
+    </div>
+    <div id="instructions" class="content-tile">
+    </div>
+    <div id="input-area" class="content-tile">
+    </div>
+    <div id="results" class="content-tile">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Your Exhange</h5>
+          <p class="card-text"><span id="start-symbol"></span><span id="start-amt"></span> <span id="start-curr"></span> is worth <span id="end-symbol"></span><span id="end-amt"> </span> <span id="start-curr"></span>. Conversion data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.</p>
+          <a href="#" class="btn btn-primary">Start Over</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

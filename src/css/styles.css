@@ -1,1 +1,13 @@
-/* custom stylesheet */
+#header h2 {
+  font-style: italic;
+}
+
+.content-tile {
+  padding: 5%;
+  margin: 5%;
+  background-color: linen;
+}
+
+.card p {
+  text-align: justify;
+}
