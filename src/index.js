@@ -12,8 +12,8 @@ function displayExchange(rate, userAmt, userCurr) {
   $(".alert-success").removeClass("hidden");
 }
 
-function displayError(rateRequest) {
-  $("#error-text").text(rateRequest["error-type"]);
+function displayError(message) {
+  $("#error-text").text(message);
   $(".alert-primary").addClass("hidden");
   $(".alert-danger").removeClass("hidden");
 }
@@ -35,6 +35,6 @@ $("#input-go").on("click", function() {
     let rateRequest = CurrencyExchange.exchange(userCurr);
     rateRequest
       .then(rateRequest => displayExchange(rateRequest, userAmt, userCurr))
-      .catch((rateRequest) => displayError(rateRequest));
+      .catch(message => displayError(message));
   }
 });
