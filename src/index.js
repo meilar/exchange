@@ -19,13 +19,22 @@ function displayError(rateRequest) {
 }
 
 $("#input-go").on("click", function() {
+  $(".alert-success").addClass("hidden");
+  $(".alert-danger").addClass("hidden");
   $(".alert-primary").removeClass("hidden");
   let userAmt = $("#user-amt").val();
   $("#user-amt").val("");
   $("#start-amt").text(userAmt);
   let userCurr = $("#curr-select").val();
-  let rateRequest = CurrencyExchange.exchange(userCurr);
-  rateRequest
-    .then(rateRequest => displayExchange(rateRequest, userAmt, userCurr))
-    .catch((rateRequest) => displayError(rateRequest));
+  if (userCurr === "") {
+    $("#error-text").text("Please select an ending currency");
+    $(".alert-primary").addClass("hidden");
+    $(".alert-success").addClass("hidden");
+    $(".alert-danger").removeClass("hidden");
+  } else {
+    let rateRequest = CurrencyExchange.exchange(userCurr);
+    rateRequest
+      .then(rateRequest => displayExchange(rateRequest, userAmt, userCurr))
+      .catch((rateRequest) => displayError(rateRequest));
+  }
 });

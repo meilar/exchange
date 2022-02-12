@@ -2,21 +2,19 @@
 
 Matthew Eilar | [LinkedIn](https://www.linkedin.com/in/eilar-503/) | [email](mailto:<meilar@gmail.com>) | [website](https://www.mattheweilar.com)
 
-## About this project
-{SCREENSHOT}
+
+![Screenshot of Project](/exchange_screenshot.jpg)
 
 ## Get Started
 
-### The Hard Way
 - Ensure that you have installed the latest versions of Git ([instructions](https://github.com/git-guides/install-git)) and Node.js ([instructions](https://nodejs.org/en/download/))
-- In your command line, clone this repository using `$ git clone https://github.com/meilar/{CHANGE_ME}`
+- In your command line, clone this repository using `$ git clone https://github.com/meilar/exchange`
+- Obtain an API Key from [ExchangeRate-API](https://www.exchangerate-api.com/).
+- In this project's root directory, create a new file named `.env`.
+- Paste your API key into `.env` in the following format `API_KEY={YOUR_KEY}` and save the file. This project will not function without a valid API key.
 - Navigate to the project directory, then install the reqired project dependencies with `$ npm init` followed by `$ npm install` 
-- To run test suites, use the command `$ npm run test` 
 - To build and view the project in your default browser, use the command `$ npm run start` to deploy a webpack development server. Please note that Google Chrome may be required to use all features. 
 
-### The Easy Way
-
-[View the hosted version of this page on Github Pages.](https://meilar.github.io/{CHANGE_ME})
 
 ## Technologies Used
 
@@ -27,6 +25,7 @@ This site incorporates the following frameworks and languages:
 - jQuery 3.6.0
 - Bootstrap 4.5
 - Node Package Manager/Node.js
+- Webpack
 - A full list of libraries and dependencies can be viewed on this project's `package.json` configuration file
 
 The following development tools were used to develop this page:
@@ -35,12 +34,9 @@ The following development tools were used to develop this page:
 - Google Chrome
 - Git
 
-
-## Known Issues
-
 ## Acknowledgements
 
-Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for {CHANGE ME}.
+Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for accepting my LinkedIn connection.
 
 ## License 
 
