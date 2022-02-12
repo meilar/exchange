@@ -11,12 +11,11 @@
       <h1 class="display-4">Exchange Your Currency</h1>
       <p class="lead">"...it's what's for dinar!"</p>
     </div>
-    <div id="input-area" class="content-tile">
+    <div class="col d-flex justify-content-center">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title  text-center elem">Enter Amount & Currencies</h5>
-          <p class="card-text">This utility will convert a given amount in US Dollars into the currency of your choice. Conversion
-            data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>, and includes 161 commonly circulating currencies covering 99% of UN recognized states and territories. Enter a dollar amount in the form field below, and select a currency to exchange to from the dropdown menu.</p>
+          <p class="card-text">This utility will convert a given amount in US Dollars into the currency of your choice. Options include 161 commonly circulating currencies covering 99% of UN recognized states and territories. Enter a US dollar amount in the form field below, and select a currency to exchange to from the dropdown menu.</p>
           <div class="row">
             <div class="col-lg-6">
               <div class="input-group my-auto">
@@ -30,9 +29,9 @@
               </div>
             </div>
             <div class="col-lg-6">
-              <select class="custom-select btn btn-outline-secondary dropdown-toggle form-control elem my-auto"
+              <select required="required" class="custom-select btn btn-outline-secondary dropdown-toggle form-control elem my-auto"
                 id="curr-select">
-                <option selected>Ending Currency</option>
+                <option value="" selected>Ending Currency</option>
                 <option value="AED">UAE Dirham</option>
                 <option value="AFN">Afghan Afghani</option>
                 <option value="ALL">Albanian Lek</option>
@@ -205,19 +204,12 @@
           <div class="alert alert-danger hidden" role="alert">
             There was an error: <span id="error-text"></span>. Please reload this page and try again.
           </div>
-        </div>
-      </div>
-    </div>
-    <div id="results" class="content-tile">
-      <div class="card">
-        <div class="card-body text-center">
-          <h5 class="card-title">Your Exhange</h5>
-          <p class="card-text" id="output-text"></p>
-          <div id="reset" class="btn btn-primary">Start Over</div>
+          <div class="alert alert-success hidden" role="alert">
+            <p class="card-text" id="output-text"></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </body>
-
 </html>

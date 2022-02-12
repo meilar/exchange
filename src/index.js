@@ -7,7 +7,9 @@ import CurrencyExchange from './currency-exchange.js';
 function displayExchange(rate, userAmt, userCurr) {
   let outputAmt = rate.conversion_rate*userAmt;
   $("#output-text").html(`$${Intl.NumberFormat("USD").format(userAmt)} USD is worth ${Intl.NumberFormat(userCurr).format(outputAmt)} ${userCurr}. Conversion
-  data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.`);
+  data is provided by <a class='alert-link' href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.`);
+  $(".alert-primary").addClass("hidden");
+  $(".alert-success").removeClass("hidden");
 }
 
 function displayError(rateRequest) {
@@ -16,12 +18,8 @@ function displayError(rateRequest) {
   $(".alert-danger").removeClass("hidden");
 }
 
-function submitMessage() {
-  $(".alert-primary").removeClass("hidden");
-}
-
 $("#input-go").on("click", function() {
-  submitMessage();
+  $(".alert-primary").removeClass("hidden");
   let userAmt = $("#user-amt").val();
   $("#user-amt").val("");
   $("#start-amt").text(userAmt);
@@ -30,8 +28,4 @@ $("#input-go").on("click", function() {
   rateRequest
     .then(rateRequest => displayExchange(rateRequest, userAmt, userCurr))
     .catch((rateRequest) => displayError(rateRequest));
-});
-
-$("#reset").on("click", function() {
-  location.reload(true);
 });

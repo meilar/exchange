@@ -18,3 +18,7 @@ h1 {
 .hidden {
   display: none;
 }
+
+.card {
+  max-width: 60%;
+}
