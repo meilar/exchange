@@ -5,18 +5,15 @@ import './css/styles.css';
 import CurrencyExchange from './currency-exchange.js';
 
 function displayExchange(rate, userAmt, userCurr) {
-  if (rate.result === "success") {
-    console.log("display exchange if statement");
-    let outputAmt = rate.conversion_rate*userAmt;
-    console.log("output amount is "+outputAmt);
-    $("#output-text").html(`$${Intl.NumberFormat("USD").format(userAmt)} USD is worth ${Intl.NumberFormat(userCurr).format(outputAmt)} ${userCurr}. Conversion
-    data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.`);
-  } else {
-    console.log("display exchange else statement");
-    $("#error-text").text(rate["error-type"]);
-    $(".alert-primary").addClass("hidden");
-    $(".alert-danger").removeClass("hidden");
-  }
+  let outputAmt = rate.conversion_rate*userAmt;
+  $("#output-text").html(`$${Intl.NumberFormat("USD").format(userAmt)} USD is worth ${Intl.NumberFormat(userCurr).format(outputAmt)} ${userCurr}. Conversion
+  data is provided by <a href="https://www.exchangerate-api.com/">ExchangeRate-API</a>.`);
+}
+
+function displayError(rateRequest) {
+  $("#error-text").text(rateRequest["error-type"]);
+  $(".alert-primary").addClass("hidden");
+  $(".alert-danger").removeClass("hidden");
 }
 
 function submitMessage() {
@@ -30,7 +27,9 @@ $("#input-go").on("click", function() {
   $("#start-amt").text(userAmt);
   let userCurr = $("#curr-select").val();
   let rateRequest = CurrencyExchange.exchange(userCurr);
-  rateRequest.then(rateRequest => displayExchange(rateRequest, userAmt, userCurr));
+  rateRequest
+    .then(rateRequest => displayExchange(rateRequest, userAmt, userCurr))
+    .catch((rateRequest) => displayError(rateRequest));
 });
 
 $("#reset").on("click", function() {
